@@ -66,35 +66,33 @@
             <point key="canvasLocation" x="1026.0869565217392" y="98.4375"/>
         </scene>
         <!--Detail View Controller-->
-        <scene sceneID="fdX-Qv-T0f">
+        <scene sceneID="gK7-UF-ojO">
             <objects>
-                <viewController storyboardIdentifier="Detail" id="izo-Ze-YuX" customClass="DetailViewController" customModule="project12c" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="IlZ-ER-fY9">
+                <viewController storyboardIdentifier="detail" id="qXT-Qc-3jY" customClass="DetailViewController" customModule="project12c" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="MTW-am-w1t">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.and.arrow.up.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="cAH-C2-XBb">
-                                <rect key="frame" x="87" y="388" width="240" height="129"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="E8m-4y-85F"/>
-                                    <constraint firstAttribute="height" constant="128" id="TNu-cf-7zz"/>
-                                </constraints>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hBr-Nw-dOJ">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="cAH-C2-XBb" firstAttribute="centerY" secondItem="bFw-BZ-Pr1" secondAttribute="centerY" id="R1U-32-J2o"/>
-                            <constraint firstItem="cAH-C2-XBb" firstAttribute="centerX" secondItem="bFw-BZ-Pr1" secondAttribute="centerX" id="oFV-DV-GLf"/>
+                            <constraint firstItem="hBr-Nw-dOJ" firstAttribute="leading" secondItem="g7Q-ee-z16" secondAttribute="leading" id="CLa-4t-xbq"/>
+                            <constraint firstItem="hBr-Nw-dOJ" firstAttribute="trailing" secondItem="g7Q-ee-z16" secondAttribute="trailing" id="RPV-Hs-XfT"/>
+                            <constraint firstItem="g7Q-ee-z16" firstAttribute="bottom" secondItem="hBr-Nw-dOJ" secondAttribute="bottom" id="hGA-To-rKA"/>
+                            <constraint firstItem="hBr-Nw-dOJ" firstAttribute="top" secondItem="g7Q-ee-z16" secondAttribute="top" id="rbu-JI-TW0"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="bFw-BZ-Pr1"/>
+                        <viewLayoutGuide key="safeArea" id="g7Q-ee-z16"/>
                     </view>
                     <connections>
-                        <outlet property="image" destination="cAH-C2-XBb" id="aez-qr-QfD"/>
+                        <outlet property="image" destination="hBr-Nw-dOJ" id="kwf-tS-Cc6"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Dd1-oz-RNi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a1h-Gx-EuU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1876.8115942028987" y="97.767857142857139"/>
+            <point key="canvasLocation" x="2043.4782608695655" y="114.50892857142857"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="VfH-82-PJv">
@@ -115,7 +113,4 @@
             <point key="canvasLocation" x="115.94202898550725" y="98.4375"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="square.and.arrow.up.fill" catalog="system" width="115" height="128"/>
-    </resources>
 </document>

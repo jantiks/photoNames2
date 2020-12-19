@@ -39,15 +39,14 @@ class ViewController: UITableViewController, UIImagePickerControllerDelegate, UI
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let vc = storyboard?.instantiateViewController(withIdentifier: "Detail") as? DetailViewController {
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "detail") as? DetailViewController {
             let photo = photos[indexPath.row]
             vc.title = photo.name
             
-            let cell = tableView.cellForRow(at: indexPath)
             let path = getDocumentsDirectory().appendingPathComponent(photo.image)
             
             
-            vc.image?.image = UIImage(contentsOfFile: path.path)
+            vc.path = path.path
             
             navigationController?.pushViewController(vc, animated: true)
         } else { return }
