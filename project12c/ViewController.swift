@@ -29,13 +29,29 @@ class ViewController: UITableViewController, UIImagePickerControllerDelegate, UI
         cell.accessoryType = .disclosureIndicator
 
         let photo = photos[indexPath.row]
-        cell.cellLabel.text = "\(photo.name)"
+        cell.cellLabel.text = photo.name
 
         let path = getDocumentsDirectory().appendingPathComponent(photo.image)
         
         cell.cellImage.image = UIImage(contentsOfFile: path.path)
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "Detail") as? DetailViewController {
+            let photo = photos[indexPath.row]
+            vc.title = photo.name
+            
+            let cell = tableView.cellForRow(at: indexPath)
+            let path = getDocumentsDirectory().appendingPathComponent(photo.image)
+            
+            
+            vc.image?.image = UIImage(contentsOfFile: path.path)
+            
+            navigationController?.pushViewController(vc, animated: true)
+        } else { return }
+        
     }
     
     @objc func addTapped() {
@@ -45,7 +61,7 @@ class ViewController: UITableViewController, UIImagePickerControllerDelegate, UI
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        var name = "Unknown" {
+        var name = "" {
             didSet {
                 photo.name = name
             }

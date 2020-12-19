@@ -14,6 +14,7 @@
 		985B17CB258D163A0009B505 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 985B17CA258D163A0009B505 /* Assets.xcassets */; };
 		985B17CE258D163A0009B505 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 985B17CC258D163A0009B505 /* LaunchScreen.storyboard */; };
 		985B17D6258D1BCC0009B505 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985B17D5258D1BCC0009B505 /* Photo.swift */; };
+		98E75A54258DFC07003778F1 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E75A53258DFC07003778F1 /* DetailViewController.swift */; };
 		98FF9720258DDE3600A7C8B0 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FF971F258DDE3600A7C8B0 /* TableViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +28,7 @@
 		985B17CD258D163A0009B505 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		985B17CF258D163A0009B505 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		985B17D5258D1BCC0009B505 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		98E75A53258DFC07003778F1 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		98FF971F258DDE3600A7C8B0 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -63,6 +65,7 @@
 				985B17C1258D16330009B505 /* AppDelegate.swift */,
 				985B17C3258D16330009B505 /* SceneDelegate.swift */,
 				985B17C5258D16330009B505 /* ViewController.swift */,
+				98E75A53258DFC07003778F1 /* DetailViewController.swift */,
 				985B17D5258D1BCC0009B505 /* Photo.swift */,
 				98FF971F258DDE3600A7C8B0 /* TableViewCell.swift */,
 				985B17C7258D16330009B505 /* Main.storyboard */,
@@ -147,6 +150,7 @@
 				98FF9720258DDE3600A7C8B0 /* TableViewCell.swift in Sources */,
 				985B17D6258D1BCC0009B505 /* Photo.swift in Sources */,
 				985B17C6258D16330009B505 /* ViewController.swift in Sources */,
+				98E75A54258DFC07003778F1 /* DetailViewController.swift in Sources */,
 				985B17C2258D16330009B505 /* AppDelegate.swift in Sources */,
 				985B17C4258D16330009B505 /* SceneDelegate.swift in Sources */,
 			);
