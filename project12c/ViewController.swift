@@ -9,6 +9,7 @@
 import UIKit
 
 class ViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
 
     var photos = [Photo]()
     
@@ -24,10 +25,16 @@ class ViewController: UITableViewController, UIImagePickerControllerDelegate, UI
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? TableViewCell else { fatalError("couldn't load cell") }
         cell.accessoryType = .disclosureIndicator
-        cell.imageView?.image = UIImage(named: photos[indexPath.row].image)
-        cell.textLabel?.text = photos[indexPath.row].name
+
+        let photo = photos[indexPath.row]
+        cell.cellLabel.text = "\(photo.name)"
+
+        let path = getDocumentsDirectory().appendingPathComponent(photo.image)
+        
+        cell.cellImage.image = UIImage(contentsOfFile: path.path)
+        
         return cell
     }
     
@@ -38,6 +45,12 @@ class ViewController: UITableViewController, UIImagePickerControllerDelegate, UI
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        var name = "Unknown" {
+            didSet {
+                photo.name = name
+            }
+        }
+        
         guard let image = info[.originalImage] as? UIImage else { return }
         
         let imageName = UUID().uuidString
@@ -46,11 +59,24 @@ class ViewController: UITableViewController, UIImagePickerControllerDelegate, UI
         if let jpegData = image.jpegData(compressionQuality: 0.8) {
             try? jpegData.write(to: imagePath)
         }
-        let photo = Photo(name: "unknown", image: imageName)
+        let photo = Photo(name: name, image: imageName)
         photos.append(photo)
         tableView.reloadData()
         
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: true) {
+            [weak self] in
+            let ac = UIAlertController(title: "Name your photo", message: nil, preferredStyle: .alert)
+            ac.addTextField()
+            ac.addAction(UIAlertAction(title: "Submit", style: .default){
+                [weak ac] action in
+                if let text = ac?.textFields?[0].text {
+                    name = text
+                    self?.tableView.reloadData()
+                }
+                
+            })
+            self?.present(ac, animated: true)
+        }
     }
     
     func getDocumentsDirectory() -> URL {
