@@ -16,6 +16,18 @@ class ViewController: UITableViewController, UIImagePickerControllerDelegate, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
+        
+        let defaults = UserDefaults.standard
+        if let savedData = defaults.object(forKey: "photos") as? Data {
+            let jsonDecoder = JSONDecoder()
+            
+            do {
+                photos = try jsonDecoder.decode([Photo].self, from: savedData)
+            } catch  {
+                print("Faild to load data")
+            }
+        }
+        
     }
     
     
@@ -86,6 +98,7 @@ class ViewController: UITableViewController, UIImagePickerControllerDelegate, UI
                 [weak ac] action in
                 if let text = ac?.textFields?[0].text {
                     name = text
+                    self?.save()
                     self?.tableView.reloadData()
                 }
                 
@@ -99,6 +112,15 @@ class ViewController: UITableViewController, UIImagePickerControllerDelegate, UI
         return paths[0]
     }
 
+    func save() {
+        let jsonEncoder = JSONEncoder()
+        if let savedData = try? jsonEncoder.encode(photos) {
+            let defaults = UserDefaults.standard
+            defaults.set(savedData, forKey: "photos")
+        } else {
+            print("Failed to save data")
+        }
+    }
 
 }
 
